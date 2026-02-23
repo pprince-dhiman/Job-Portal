@@ -8,15 +8,12 @@ import { motion } from 'framer-motion';
 const Jobs = () => {
     useGetAllJobs();
     let jobs = useSelector(store => store.job.allJobs);
-    console.log(jobs)
 
     const [selectedFilter, setSelectedFilter] = useState({
         location: "",
         industry: "",
         salary: ""
     });
-
-    console.log("Selectedfilter location:", selectedFilter.location);
 
     const salaryMatch = (jobSalary, selectedSalary) => {
         if (selectedSalary === "0-5LPA") return jobSalary <= 5;

@@ -10,7 +10,8 @@ import applicationRouter from "./routes/application.route.js";
 
 const app = express();
 const options = {
-    origin: 'http://localhost:5173',
+    // origin: 'http://localhost:5173',
+    origin: true,
     credentials: true,
 }
 

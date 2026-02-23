@@ -2,6 +2,7 @@ import { setCompanies } from '@/features/companySlice';
 import { COMPANY_API_ENDPOINT } from '@/utils/constant';
 import axios from 'axios';
 import { useEffect } from 'react'
+import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 
 const useGetAllCompanies = () => {
@@ -16,7 +17,7 @@ const useGetAllCompanies = () => {
                 }
             }
             catch(err){
-                console.log(err.response.data);
+                toast.error(err.response.data.message);
             }
         }
         fetchAllCompanies();

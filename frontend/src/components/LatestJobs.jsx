@@ -15,11 +15,11 @@ const LatestJobs = () => {
 
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
-                    allJobs?.length <= 0 ? <span>Refresh the page</span> : allJobs?.slice(0, 6).map((job) => <LatestJobCard key={job?._id} job={job}/>)
+                    allJobs?.length <= 0 ? <span className='text-xl text-gray-600 m-auto'>Refresh the page</span> : allJobs?.slice(0, 6).map((job) => <LatestJobCard key={job?._id} job={job}/>)
                 }
             </div>
         </div>
     );
 }
 
-export default LatestJobs
+export default LatestJobs;
