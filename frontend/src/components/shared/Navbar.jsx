@@ -39,7 +39,7 @@ const Navbar = () => {
 
                 <div>
                     <h1 className='text-xl sm:text-2xl font-bold cursor-alias' onClick={() => navigate('/')}>
-                        Job<span className='text-[#F83002] hover:text-[#6A38C2] transition'>Portal</span>
+                        <span className='text-[#6A38C2] hover:text-[#F83002]'>All</span>Job<span className='text-[#F83002] hover:text-[#6A38C2] transition'>Portal</span>
                     </h1>
                 </div>
 

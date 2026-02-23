@@ -7,7 +7,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
         <div>
-          <h1 className='text-2xl font-bold'>Job<span className='text-[#F83002] hover:text-[#6A38C2]'>Portal</span></h1>
+          <h1 className='text-2xl font-bold'>
+            <span className='text-[#6A38C2] hover:text-[#F83002]'>All</span>Job<span className='text-[#F83002] hover:text-[#6A38C2]'>Portal</span>
+            </h1>
           <p className="text-gray-600 text-sm leading-relaxed">
             Connecting talent with the right opportunities. Discover jobs that match your passion and skills.
           </p>
