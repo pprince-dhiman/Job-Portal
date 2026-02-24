@@ -18,12 +18,12 @@ const useUserAppliedJobs = () => {
                     dispatch(setAllAppliedJobs(res.data.allApplications));
                 }
             } catch(err){
-                toast.error(err.response.data.message);
+                toast(err.response.data.message);
             }          
         }
 
         fetchUserAppliedJobs();
-    }, []);
+    }, [user]);
 }
 
 export default useUserAppliedJobs;

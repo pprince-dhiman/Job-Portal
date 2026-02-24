@@ -25,8 +25,11 @@ const JobDescription = () => {
         setHasAlreadyApplied(isApplied);
     }, [isApplied]);
 
+    const [loading, setLoading] = useState(false);
+
     const applyJobHandler = async () => {
         try {
+            setLoading(true);
             const res = await axios.post(`${APPLICATION_API_ENDPOINT}/apply/${jobId}`, null, { withCredentials: true })
             if (res.data.success) {
                 toast.success(res.data.message);
@@ -39,6 +42,9 @@ const JobDescription = () => {
         }
         catch (err) {
             toast.error(err.response.data.message);
+        }
+        finally {
+            setLoading(false)
         }
     }
 
@@ -109,16 +115,27 @@ const JobDescription = () => {
                     </div>
 
                     {/* Right */}
-                    <Button
-                        disabled={hasAlreadyApplied} onClick={hasAlreadyApplied ? null : applyJobHandler}
-                        className={`h-12 px-8 text-base rounded-xl transition-all duration-300
+                    {
+                        !loading ?
+                            (<Button
+                                disabled={hasAlreadyApplied} onClick={hasAlreadyApplied ? null : applyJobHandler}
+                                className={`h-12 px-8 text-base rounded-xl transition-all duration-300
                         ${hasAlreadyApplied
-                                ? 'bg-gray-400 cursor-not-allowed'
-                                : 'bg-[#6A38C2] hover:bg-[#5b30aa] shadow-md hover:shadow-lg'
-                            }`}
-                    >
-                        {hasAlreadyApplied ? 'Already Applied' : 'Apply Now'}
-                    </Button>
+                                        ? 'bg-gray-400 cursor-not-allowed'
+                                        : 'bg-[#6A38C2] hover:bg-[#5b30aa] shadow-md hover:shadow-lg'
+                                    }`}
+                            >
+                                {hasAlreadyApplied ? 'Already Applied' : 'Apply Now'}
+                            </Button>) :
+                            (
+                                <Button disabled={loading}
+                                    className={`h-12 px-8 text-base rounded-xl transition-all duration-300 bg-gray-400 cursor-not-allowed`}
+                                >
+                                    Applying...
+                                </Button>
+                            )
+                    }
+
 
                 </div>
 
