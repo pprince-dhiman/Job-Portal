@@ -92,10 +92,14 @@ export const login = async (req, res) => {
             profile: user.profile
         }
 
+        // for testing in both production and local machine.
+        const isProduction = process.env.NODE_ENV === 'production';
+
         res.status(200).cookie('token', token, {
             maxAge: 60 * 60 * 1000,
             httpOnly: true,
-            sameSite: 'strict'
+            secure: isProduction,
+            sameSite: isProduction ? 'none' : 'lax',
         }).json({
             success: true,
             user,

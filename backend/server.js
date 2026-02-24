@@ -10,8 +10,7 @@ import applicationRouter from "./routes/application.route.js";
 
 const app = express();
 const options = {
-    // origin: 'http://localhost:5173',
-    origin: true,
+    origin: ['http://localhost:5173', 'https://all-job-portal.vercel.app'],
     credentials: true,
 }
 
