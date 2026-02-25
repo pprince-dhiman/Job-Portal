@@ -30,13 +30,20 @@ const AdminJobs = () => {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                 />
-
-                <Button
-                    onClick={() => navigate('/admin/job/create')}
-                    className="cursor-pointer w-full sm:w-auto"
-                >
-                    New Job
-                </Button>
+                <div className='grid grid-cols-2 gap-10'>
+                    <Button variant='outline'
+                        onClick={() => navigate('/admin/companies')}
+                        className="cursor-pointer w-full sm:w-auto"
+                    >
+                        Company
+                    </Button>
+                    <Button
+                        onClick={() => navigate('/admin/job/create')}
+                        className="cursor-pointer w-full sm:w-auto"
+                    >
+                        New Job
+                    </Button>
+                </div>
 
             </div>
 

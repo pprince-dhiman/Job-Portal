@@ -13,10 +13,10 @@ const Companies = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
 
-    useEffect(()=>{
+    useEffect(() => {
         // using this value in companies table to search company accordingly.
         dispatch(setSearchCompany(input));
-    },[input]);
+    }, [input]);
 
     return (
         <div className="max-w-6xl mx-auto my-6 px-4">
@@ -27,15 +27,22 @@ const Companies = () => {
                     className="w-full sm:w-64"
                     placeholder="Filter by name"
                     value={input}
-                    onChange={(e)=> setInput(e.target.value)}
+                    onChange={(e) => setInput(e.target.value)}
                 />
-
-                <Button
-                    onClick={() => navigate('/admin/companies/create')}
-                    className="cursor-pointer w-full sm:w-auto"
-                >
-                    New Company
-                </Button>
+                <div className='grid grid-cols-2 gap-10'>
+                    <Button variant='outline'
+                        onClick={() => navigate('/admin/jobs')}
+                        className="cursor-pointer w-full sm:w-auto"
+                    >
+                        Jobs
+                    </Button>
+                    <Button
+                        onClick={() => navigate('/admin/companies/create')}
+                        className="cursor-pointer w-full sm:w-auto"
+                    >
+                        New Company
+                    </Button>
+                </div>
 
             </div>
 
