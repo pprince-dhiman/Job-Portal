@@ -18,3 +18,6 @@ React.js, Redux Toolkit, Tailwind CSS, Axios.
 
 Node.js, Express.js, MongoDB (Mongoose), 
 JWT Authentication, Cookie-based auth
+
+# Live link
+https://all-job-portal.vercel.app/
